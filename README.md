@@ -38,7 +38,7 @@
 ├── .env.example            # copy to .env and add your key
 ├── data/
 │   ├── yale_som_classes.json
-│   └── yale_som.db         # not in git, see Setup
+│   └── yale_som.db         # SQLite course table used by the agent
 ├── backend/
 │   ├── main.py             # FastAPI app: /api/health, /api/courses, /api/chat
 │   ├── agent.py            # PydanticAI agent, web search, audit trail
@@ -72,7 +72,7 @@ PORTKEY_API_KEY=your-portkey-api-key-here
 
 The backend reads `.env` from the project folder or from the folder one level up. Never commit your real `.env`. It's already in `.gitignore`.
 
-**2. Course database.** Put `yale_som.db` in the `data/` folder. `.gitignore` excludes `*.db`, so the file isn't in the repo. The catalog cards still load from `data/yale_som_classes.json` without it, but the agent's `search_courses` tool needs the database.
+**2. Course database.** `data/yale_som.db` is included in the repo, so there's nothing to download. The catalog cards load from `data/yale_som_classes.json`, and the agent's `search_courses` tool reads the `courses` table in the database.
 
 **3. Backend dependencies.** Run these in PowerShell:
 
