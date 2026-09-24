@@ -1,4 +1,4 @@
-"""Yale SOM course agent: PydanticAI + gpt-6-astra through Portkey.
+"""Yale SOM course agent: PydanticAI + gpt-5.6-luna through Portkey.
 
 Tools: search_courses (tools.py) and web_search (OpenAI's native web search).
 Every run is appended to output/audit_trail.json.
@@ -41,7 +41,7 @@ ROOT = HERE.parent
 load_dotenv(ROOT / ".env")
 load_dotenv(ROOT.parent / ".env")
 
-MODEL_NAME = "gpt-6-astra"
+MODEL_NAME = "gpt-5.6-luna"
 PORTKEY_BASE_URL = os.getenv("PORTKEY_BASE_URL", "https://api.portkey.ai/v1").rstrip("/")
 PROMPT_PATH = HERE / "prompts" / "prompt.md"
 AUDIT_PATH = ROOT / "output" / "audit_trail.json"

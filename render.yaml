@@ -1,0 +1,28 @@
+# Render Blueprint: New → Blueprint → pick this repo. Creates both services.
+services:
+  # FastAPI backend (course data + AI chat)
+  - type: web
+    name: yale-som-courses-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORTKEY_API_KEY
+        sync: false # Render asks for the value when you create the Blueprint
+
+  # React frontend (static site)
+  - type: web
+    name: yale-som-courses-red
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: yale-som-courses-api
+          property: host

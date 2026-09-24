@@ -28,7 +28,7 @@ DB_PATH = ROOT / "data" / "yale_som.db"
 load_dotenv(ROOT / ".env")
 load_dotenv(ROOT.parent / ".env")
 
-MODEL_NAME = "gpt-6-astra"
+MODEL_NAME = "gpt-5.6-luna"
 PORTKEY_BASE_URL = os.getenv("PORTKEY_BASE_URL", "https://api.portkey.ai/v1").rstrip("/")
 MAX_RESULTS = 15
 

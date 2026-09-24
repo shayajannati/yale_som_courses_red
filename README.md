@@ -28,7 +28,7 @@
 | Frontend | React 19, Vite, TypeScript, `react-markdown` |
 | Backend | FastAPI, uvicorn |
 | Agent | PydanticAI (`pydantic-ai-slim[openai]`) on the OpenAI Responses API |
-| Model | `gpt-6-astra` through the [Portkey](https://portkey.ai) gateway |
+| Model | `gpt-5.6-luna` through the [Portkey](https://portkey.ai) gateway |
 | Data | `data/yale_som_classes.json` (catalog) and `data/yale_som.db` (SQLite, used by the agent) |
 
 ## Project layout
@@ -123,7 +123,7 @@ Then open **http://127.0.0.1:5173**. The API docs are at **http://127.0.0.1:8000
 
 ## Notes
 
-- **Cost.** `search_courses` makes its own LLM call on every search, and web questions can take several search rounds. The agent allows up to 20 model requests per question. `gpt-6-astra` also costs more than `gpt-5.6-luna`. If you're on a tight Portkey budget, change `MODEL_NAME` in `backend/agent.py` and `backend/tools.py`.
+- **Cost.** `search_courses` makes its own LLM call on every search, and web questions can take several search rounds. The agent allows up to 20 model requests per question. To use a different model, change `MODEL_NAME` in `backend/agent.py` and `backend/tools.py`.
 - **Handsome Dan image.** The mascot is an original SVG React component with `furColor`, `bandanaColor` and `size` props. If you edit the component, regenerate the image at the top of this README:
 
   ```powershell
